@@ -1,10 +1,25 @@
 <tui-root>
-<app-layout-horizontal *ngIf="isAuthenticated$ | async; else notAuthorized">
-    <router-outlet></router-outlet>
-</app-layout-horizontal>
+    <app-layout-horizontal *ngIf="isAuthenticated$ | async; else notAuthorized">
+        <router-outlet></router-outlet>
+    </app-layout-horizontal>
 
-<ng-template #notAuthorized>
-    <router-outlet></router-outlet>
-</ng-template>
+    <ng-template #notAuthorized>
+        <router-outlet></router-outlet>
+    </ng-template>
 
+    <ng-container ngProjectAs="tuiOverContent">
+        <!-- Content over app content -->
+    </ng-container>
+    <ng-container ngProjectAs="tuiOverDialogs">
+        <!-- Content over dialogs -->
+    </ng-container>
+    <ng-container ngProjectAs="tuiOverAlerts">
+        <!-- Content over alerts -->
+    </ng-container>
+    <ng-container ngProjectAs="tuiOverPortals">
+        <!-- Content over dropdowns -->
+    </ng-container>
+    <ng-container ngProjectAs="tuiOverHints">
+        <!-- Content over hints -->
+    </ng-container>
 </tui-root>
