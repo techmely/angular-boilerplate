@@ -5,12 +5,12 @@ import { AuthService } from '@lib/services';
 import { ThemeService } from '@lib/services/theme';
 import { TUI_SANITIZER, TuiAlertModule, TuiDialogModule, TuiRootModule } from '@taiga-ui/core';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
-import { LayoutHorizontalComponent } from './lib/components/layouts/layout-horizontal/layout-horizontal.component';
+import { LayoutDefaultComponent } from './lib/components/layouts/default/layout-default.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, RouterModule, LayoutHorizontalComponent, TuiRootModule, TuiAlertModule, TuiDialogModule],
+    imports: [CommonModule, RouterModule, LayoutDefaultComponent, TuiRootModule, TuiAlertModule, TuiDialogModule],
     templateUrl: './app.component.html',
     providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
 })

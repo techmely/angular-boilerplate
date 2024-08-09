@@ -1,7 +1,7 @@
 <tui-root>
-    <app-layout-horizontal *ngIf="isAuthenticated$ | async; else notAuthorized">
+    <app-layout-default *ngIf="isAuthenticated$ | async; else notAuthorized">
         <router-outlet></router-outlet>
-    </app-layout-horizontal>
+    </app-layout-default>
 
     <ng-template #notAuthorized>
         <router-outlet></router-outlet>

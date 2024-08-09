@@ -1,34 +1,34 @@
-import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '@lib/services';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import {
     TuiButtonModule,
     tuiButtonOptionsProvider,
     TuiDataListModule,
     tuiDropdownOptionsProvider,
+    TuiExpandModule,
+    TuiHintModule,
     TuiHostedDropdownModule,
+    TuiScrollbarModule,
 } from '@taiga-ui/core';
 import {
-    TuiAvatarModule,
     tuiAvatarOptionsProvider,
-    TuiBadgeModule,
-    TuiBadgeNotificationModule,
     tuiBadgeNotificationOptionsProvider,
     tuiBadgeOptionsProvider,
     TuiIconModule,
+    TuiNavigationModule,
 } from '@taiga-ui/experimental';
 
 @Component({
-    selector: 'app-navbar',
+    selector: 'app-sidenav',
     standalone: true,
     imports: [
-        TuiButtonModule,
-        TuiAvatarModule,
-        TuiBadgeNotificationModule,
+        TuiExpandModule,
         TuiIconModule,
-        TuiDataListModule,
         TuiHostedDropdownModule,
-        TuiBadgeModule,
+        TuiScrollbarModule,
+        TuiDataListModule,
+        TuiButtonModule,
+        TuiNavigationModule,
+        TuiHintModule
     ],
     providers: [
         tuiAvatarOptionsProvider({ size: 's', appearance: 'secondary' }),
@@ -38,19 +38,23 @@ import {
         tuiDropdownOptionsProvider({ appearance: 'dropdown-navigation' }),
     ],
     encapsulation: ViewEncapsulation.None,
-    styleUrls: ['./navbar.style.less'],
+    styleUrls: ['./sidenav.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './navbar.component.html',
+    templateUrl: './sidenav.component.html',
     host: {
         tuiTheme: 'night',
     },
 })
-export class NavbarComponent {
-    private readonly _router = inject(Router);
-    private readonly _authService = inject(AuthService);
+export class SideNavComponent {
+    expanded: boolean = false;
+    open: boolean = false;
+    submenu: boolean = false;
 
-    onClickSignOut(): void {
-        this._authService.logout();
-        this._router.navigate(['/auth/login']);
+    toggleSubmenu(): void {
+        this.submenu = !this.submenu;
+    }
+
+    toggleExpand(): void {
+        this.expanded = !this.expanded;
     }
 }

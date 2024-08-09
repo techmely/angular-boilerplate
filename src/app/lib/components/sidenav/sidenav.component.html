@@ -1,0 +1,103 @@
+<tui-scrollbar class="t-nav-scrollbar">
+    <div
+        tuiFade="vertical"
+        tuiScrollable
+        class="t-nav-content"
+    >
+        <aside
+            [style.height.rem]="27"
+            [tuiNavigationAside]="expanded"
+        >
+            <header>
+                <button
+                    icon="tuiIconHome"
+                    tuiButton
+                >
+                    <span tuiFade>A very very long product name</span>
+                </button>
+            </header>
+            <button
+                icon="tuiIconSearch"
+                tuiButton
+                tuiHint
+                tuiHintAside
+            >
+                Search
+            </button>
+            <a
+                icon="tuiIconUsers"
+                routerLink="/experimental/navigation"
+                routerLinkActive="active"
+                tuiAppearance="flat"
+                tuiButton
+            >
+                Groups
+            </a>
+            <tui-hosted-dropdown
+                [canOpen]="!expanded"
+                [content]="dropdown"
+                [sided]="true"
+                [(open)]="open"
+            >
+                <button
+                    icon="tuiIconSettings"
+                    icon="tuiIconChevronDown"
+                    tuiAppearance="flat"
+                    tuiButton
+                    [appearance]="open ? 'hover' : null"
+                    (click)="submenu = expanded && !submenu"
+                >
+                    Settings
+                </button>
+                <ng-template #dropdown>
+                    <tui-data-list size="s">
+                        <button tuiOption>Account</button>
+                        <button tuiOption>Notifications</button>
+                        <button tuiOption>Privacy</button>
+                    </tui-data-list>
+                </ng-template>
+            </tui-hosted-dropdown>
+            <tui-expand [expanded]="expanded && submenu">
+                <button tuiButton>Account</button>
+                <button tuiButton>Notifications</button>
+                <button tuiButton>Privacy</button>
+            </tui-expand>
+            <button
+                icon="tuiIconHeart"
+                tuiButton
+                tuiHint
+                tuiHintAside
+            >
+                <span tuiFade>By default ellipsis is used but you can use fade too</span>
+            </button>
+            <hr />
+            <button
+                icon="tuiIconPlus"
+                tuiButton
+                tuiHint
+                tuiHintAside
+            >
+                Add
+            </button>
+            <footer>
+                <button
+                    icon="tuiIconStar"
+                    tuiButton
+                    tuiHint
+                    tuiHintAside
+                >
+                    Favorites
+                </button>
+                <button
+                    tuiButton
+                    tuiHint
+                    tuiHintAside
+                    [icon]="expanded ? 'tuiIconChevronLeft' : 'tuiIconChevronRight'"
+                    (click)="expanded = !expanded"
+                >
+                    {{ expanded ? 'Collapse' : 'Expand' }}
+                </button>
+            </footer>
+        </aside>
+    </div>
+</tui-scrollbar>
