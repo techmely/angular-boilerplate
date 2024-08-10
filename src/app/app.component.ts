@@ -12,6 +12,7 @@ import { LayoutDefaultComponent } from './lib/components/layouts/default/layout-
     standalone: true,
     imports: [CommonModule, RouterModule, LayoutDefaultComponent, TuiRootModule, TuiAlertModule, TuiDialogModule],
     templateUrl: './app.component.html',
+    styleUrls: ['./app.style.less'],
     providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
 })
 export class AppComponent implements OnInit {

@@ -7,6 +7,7 @@ import { FooterComponent, NavbarComponent, SideNavComponent } from '@lib/compone
     standalone: true,
     imports: [CommonModule, NavbarComponent, FooterComponent, SideNavComponent],
     templateUrl: './layout-default.component.html',
+    styleUrl: './layout-default.style.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutDefaultComponent {}
