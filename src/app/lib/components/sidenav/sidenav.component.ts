@@ -14,7 +14,7 @@ import {
     tuiBadgeNotificationOptionsProvider,
     tuiBadgeOptionsProvider,
     TuiIconModule,
-    TuiNavigationModule,
+    TuiNavigationModule
 } from '@taiga-ui/experimental';
 
 @Component({
@@ -28,7 +28,7 @@ import {
         TuiDataListModule,
         TuiButtonModule,
         TuiNavigationModule,
-        TuiHintModule
+        TuiHintModule,
     ],
     providers: [
         tuiAvatarOptionsProvider({ size: 's', appearance: 'secondary' }),
