@@ -1,25 +1,43 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import {
-    TuiButton,
+    TuiButtonModule,
     tuiButtonOptionsProvider,
-    // TuiDataList,
-    TuiDropdown,
+    TuiDataListModule,
     tuiDropdownOptionsProvider,
-    TuiExpand,
-    TuiHint,
-    TuiIcon,
-    TuiScrollbar,
+    TuiExpandModule,
+    TuiHintModule,
+    TuiHostedDropdownModule,
+    TuiScrollbarModule,
 } from '@taiga-ui/core';
-import { TuiNavigation } from '@taiga-ui/layout';
+import {
+    tuiAvatarOptionsProvider,
+    tuiBadgeNotificationOptionsProvider,
+    tuiBadgeOptionsProvider,
+    TuiIconModule,
+    TuiNavigationModule
+} from '@taiga-ui/experimental';
 
 @Component({
     selector: 'app-sidenav',
     standalone: true,
-    imports: [TuiExpand, TuiIcon, TuiDropdown, TuiScrollbar, TuiButton, TuiNavigation, TuiHint],
+    imports: [
+        TuiExpandModule,
+        TuiIconModule,
+        TuiHostedDropdownModule,
+        TuiScrollbarModule,
+        TuiDataListModule,
+        TuiButtonModule,
+        TuiNavigationModule,
+        TuiHintModule,
+    ],
     providers: [
+        tuiAvatarOptionsProvider({ size: 's', appearance: 'secondary' }),
+        tuiBadgeNotificationOptionsProvider({ size: 'xs' }),
+        tuiBadgeOptionsProvider({ size: 'm', appearance: 'primary' }),
         tuiButtonOptionsProvider({ size: 's', appearance: 'flat' }),
         tuiDropdownOptionsProvider({ appearance: 'dropdown-navigation' }),
     ],
+    encapsulation: ViewEncapsulation.None,
     styleUrls: ['./sidenav.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './sidenav.component.html',
