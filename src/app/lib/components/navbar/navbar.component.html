@@ -1,20 +1,21 @@
 <header tuiNavigationHeader>
     <button
         appearance="secondary"
-        icon="tuiIconGrid"
+        iconStart="@tui.layout-grid"
         tuiIconButton
     >
         Menu
     </button>
     <span tuiNavigationLogo>
-        <tui-icon icon="tuiIconHome"></tui-icon>
+        <tui-icon icon="@tui.home"></tui-icon>
         <span tuiFade>TechMely</span>
-        <tui-badge>New</tui-badge>
+        <!-- Taiga migration TODO: use "<tui-icon>" with "tuiBadge" directive for icon-only badges instead -->
+<tui-badge>New</tui-badge>
     </span>
-    <tui-hosted-dropdown [content]="products">
+    <!-- <div tuiDropdownOpen [tuiDropdown]="products">
         <button
             appearance="secondary"
-            iconRight="tuiIconChevronDown"
+            iconEnd="@tui.chevron-down"
             tuiButton
         >
             <span tuiFade>TechMely</span>
@@ -24,7 +25,7 @@
                 <button tuiOption>
                     A very very long project
                     <tui-icon
-                        icon="tuiIconCheck"
+                        icon="@tui.check"
                         [style.font-size.em]="1"
                         [style.margin-left.rem]="0.5"
                     ></tui-icon>
@@ -32,24 +33,24 @@
                 <button tuiOption>Something else</button>
             </tui-data-list>
         </ng-template>
-    </tui-hosted-dropdown>
+    </div> -->
     <hr />
     <button
         appearance="secondary"
-        icon="tuiIconPlus"
+        iconStart="@tui.plus"
         tuiButton
     >
         Create
     </button>
     <button
-        icon="tuiIconBell"
+        iconStart="@tui.bell"
         tuiIconButton
     >
         Notifications
         <tui-badge-notification></tui-badge-notification>
     </button>
     <button
-        icon="tuiIconMoreHorizontal"
+        iconStart="@tui.ellipsis"
         tuiIconButton
     >
         More

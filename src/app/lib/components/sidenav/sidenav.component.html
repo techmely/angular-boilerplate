@@ -1,3 +1,4 @@
+<!-- Taiga migration TODO: tuiButton "whiteblock-active" appearance is no longer available. Use 'appearance="whiteblock" data-mode="checked"' -->
 <tui-scrollbar class="t-nav-scrollbar">
     <div
         tuiFade="vertical"
@@ -25,7 +26,7 @@
                 </button>
             </header>
             <button
-                icon="tuiIconSearch"
+                iconStart="@tui.search"
                 tuiButton
                 tuiHint
                 tuiHintAside
@@ -33,7 +34,7 @@
                 Search
             </button>
             <a
-                icon="tuiIconUsers"
+                iconStart="@tui.users"
                 routerLink="/experimental/navigation"
                 routerLinkActive="active"
                 tuiAppearance="flat"
@@ -41,18 +42,18 @@
             >
                 Groups
             </a>
-            <tui-hosted-dropdown
-                [canOpen]="!expanded"
-                [content]="dropdown"
-                [sided]="true"
-                [(open)]="open"
+            <!-- <div
+                [tuiDropdownEnabled]="!expanded"
+                [tuiDropdown]="dropdown"
+                [tuiDropdownSided]="true"
+                [(tuiDropdownOpen)]="open"
             >
                 <button
-                    icon="tuiIconSettings"
-                    icon="tuiIconChevronDown"
+                    iconStart="@tui.settings"
+                    icon="@tui.chevron-down"
                     tuiAppearance="flat"
                     tuiButton
-                    [appearance]="open ? 'hover' : null"
+                    [appearance]="open ? 'hover' : ''"
                     (click)="submenu = expanded && !submenu"
                 >
                     Settings
@@ -64,14 +65,14 @@
                         <button tuiOption>Privacy</button>
                     </tui-data-list>
                 </ng-template>
-            </tui-hosted-dropdown>
+            </div> -->
             <tui-expand [expanded]="expanded && submenu">
                 <button tuiButton>Account</button>
                 <button tuiButton>Notifications</button>
                 <button tuiButton>Privacy</button>
             </tui-expand>
             <button
-                icon="tuiIconHeart"
+                iconStart="@tui.heart"
                 tuiButton
                 tuiHint
                 tuiHintAside
@@ -80,7 +81,7 @@
             </button>
             <hr />
             <button
-                icon="tuiIconPlus"
+                iconStart="@tui.plus"
                 tuiButton
                 tuiHint
                 tuiHintAside
@@ -89,7 +90,7 @@
             </button>
             <footer>
                 <button
-                    icon="tuiIconStar"
+                    iconStart="@tui.star"
                     tuiButton
                     tuiHint
                     tuiHintAside
@@ -100,7 +101,7 @@
                     tuiButton
                     tuiHint
                     tuiHintAside
-                    [icon]="expanded ? 'tuiIconChevronLeft' : 'tuiIconChevronRight'"
+                    [iconStart]="expanded ? '@tui.chevron-left' : '@tui.chevron-right'"
                     (click)="expanded = !expanded"
                 >
                     {{ expanded ? 'Collapse' : 'Expand' }}

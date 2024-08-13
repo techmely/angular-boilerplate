@@ -1,43 +1,24 @@
-import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@lib/services';
 import {
-    TuiButtonModule,
+    TuiButton,
     tuiButtonOptionsProvider,
-    TuiDataListModule,
+    // TuiDataList,
+    TuiDropdown,
     tuiDropdownOptionsProvider,
-    TuiHostedDropdownModule,
+    TuiIcon,
 } from '@taiga-ui/core';
-import {
-    TuiAvatarModule,
-    tuiAvatarOptionsProvider,
-    TuiBadgeModule,
-    TuiBadgeNotificationModule,
-    tuiBadgeNotificationOptionsProvider,
-    tuiBadgeOptionsProvider,
-    TuiIconModule,
-} from '@taiga-ui/experimental';
+import { TuiAvatar, TuiBadge, TuiBadgeNotification, TuiChevron } from '@taiga-ui/kit';
 
 @Component({
     selector: 'app-navbar',
     standalone: true,
-    imports: [
-        TuiButtonModule,
-        TuiAvatarModule,
-        TuiBadgeNotificationModule,
-        TuiIconModule,
-        TuiDataListModule,
-        TuiHostedDropdownModule,
-        TuiBadgeModule,
-    ],
+    imports: [TuiButton, TuiAvatar, TuiBadgeNotification, TuiIcon, TuiDropdown, TuiBadge, TuiChevron],
     providers: [
-        tuiAvatarOptionsProvider({ size: 's', appearance: 'secondary' }),
-        tuiBadgeNotificationOptionsProvider({ size: 'xs' }),
-        tuiBadgeOptionsProvider({ size: 'm', appearance: 'primary' }),
         tuiButtonOptionsProvider({ size: 's', appearance: 'flat' }),
         tuiDropdownOptionsProvider({ appearance: 'dropdown-navigation' }),
     ],
-    encapsulation: ViewEncapsulation.None,
     styleUrls: ['./navbar.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './navbar.component.html',
