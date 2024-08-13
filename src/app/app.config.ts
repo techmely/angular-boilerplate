@@ -3,7 +3,7 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { jwtInterceptor, serverErrorInterceptor } from '@lib/interceptors';
-import { TuiRootModule } from '@taiga-ui/core';
+import { NG_EVENT_PLUGINS } from '@taiga-ui/event-plugins';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -11,6 +11,7 @@ export const appConfig: ApplicationConfig = {
         provideAnimations(),
         provideRouter(routes, withComponentInputBinding()),
         provideHttpClient(withInterceptors([serverErrorInterceptor, jwtInterceptor])),
-        importProvidersFrom(TuiRootModule),
+        importProvidersFrom(),
+        NG_EVENT_PLUGINS,
     ],
 };
